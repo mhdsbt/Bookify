@@ -24,7 +24,7 @@ namespace Bookify.Domain.Entities.User
         {
             var user = new User(id, FirstName, LastName, Email);
 
-            user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id)); 
+            user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id));
 
             return user;
         }
