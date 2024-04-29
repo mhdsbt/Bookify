@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bookify.Domain.Entities.Apratment
+namespace Bookify.Domain.Entities.shared
 {
     public record Currency //Value object
     {

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Bookify.Domain.Entities.shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bookify.Domain.Entities.Apratment
+namespace Bookify.Domain.Entities.Shared
 {
     public record Money(decimal Amount, Currency Currency) //ValueObject
     {
@@ -19,5 +20,7 @@ namespace Bookify.Domain.Entities.Apratment
         }
 
         public static Money Zero() => new Money(0, Currency.None);
+        public static Money Zero(Currency currency) => new Money(0, currency);
+        public bool IsZero() => this == Zero(Currency);
     }
 }
