@@ -12,6 +12,7 @@ namespace Bookify.Domain.Enums
         Confirmed = 2,
         Rejected = 3,
         Cancelled = 4,
-        Completed = 5
+        Completed = 5,
+        NotConfirm = 5
     }
 }
