@@ -9,7 +9,7 @@ namespace Bookify.Domain.Entities.Shared
 {
     public record Money(decimal Amount, Currency Currency) //ValueObject
     {
-        public static Money operator +(Money first, Money second)
+        public static Money operator +(Money first, Money second) //  For Sum Two  Same Currency  With Together
         {
             if (first.Currency != second.Currency)
             {
