@@ -1,5 +1,4 @@
-﻿using Bookify.Domain.Entities.Apratment;
-
+﻿
 namespace Bookify.Domain.Enums
 {
     public enum WelfareAmenities

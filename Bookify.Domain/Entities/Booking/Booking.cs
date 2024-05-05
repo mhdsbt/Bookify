@@ -4,7 +4,7 @@ using Bookify.Domain.Entities.Booking.Events;
 using Bookify.Domain.Entities.Shared;
 using Bookify.Domain.Enums;
 
-namespace Bookify.Domain.Entities.Booking.Shared
+namespace Bookify.Domain.Entities.Booking
 {
     public class Booking : Entity
     {

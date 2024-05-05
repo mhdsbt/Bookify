@@ -14,6 +14,6 @@ public static class BookingErrors
         public static Error Confirmed = new("Booking.Confirmed", "The Boooking Already is Confirm");
         public static Error NotConfirm = new("Booking.NotConfirm", "The Booking Already NotConfirm");
         public static Error Alreadystarted = new("Booking.Alreadystarted", "The Booking Already Started");
-
+        public static Error OverLap = new("Booking.Overlap", "The Booking Already Overlap With Another Booking");
     }
 }
