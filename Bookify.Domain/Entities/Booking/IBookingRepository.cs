@@ -6,5 +6,6 @@ namespace Bookify.Domain.Entities.Booking
     {
         Task<bool> IsOverlappingAsync(Apartment apartment,DateRange dateRange,CancellationToken cancellationToken);
         Task<bool> Add(Booking booking);
+        Task<Booking> GetByIdAsync(Guid bookingId,CancellationToken cancellationToken);
     }
 }

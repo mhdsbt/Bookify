@@ -8,7 +8,7 @@ namespace Bookify.Domain.Entities.User
 {
     public interface IUserRepository
     {
-        Task<User?> GetbyIdAsync(Guid id, CancellationToken cancellationToken = default);
-        void Add(User user);
+        Task<Users?> GetbyIdAsync(Guid id, CancellationToken cancellationToken = default);
+        void Add(Users user);
     }
 }
