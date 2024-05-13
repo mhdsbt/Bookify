@@ -11,11 +11,13 @@ namespace Bookify.Application.Bookings.ReserveBooking
     {
         public ReserveBookingCommandValidator()
         {
-            RuleFor(c=>c.UserId).NotEmpty();
+            RuleFor(c=>c.UserId).NotNull().NotEmpty();
 
-            RuleFor(c => c.ApartmentId).NotEmpty();
+            RuleFor(c => c.ApartmentId).NotNull().NotEmpty();
 
             RuleFor(c=>c.StartDate).LessThan(c=>c.EndDate);
+
+
         }
     }
 }
