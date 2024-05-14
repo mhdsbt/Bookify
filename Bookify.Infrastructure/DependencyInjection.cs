@@ -1,5 +1,6 @@
 ﻿using Bookify.Application.Abstraction.Email;
 using Bookify.Infrastructure.EmailService;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +15,15 @@ namespace Bookify.Infrastructure
         {
 
             services.AddTransient<IEmailService, EmailService.EmailService>();
+
+            var connectionString = configuration.GetConnectionString("Database") ??
+                throw new ArgumentNullException(nameof(configuration));
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
+            }
+            );
+
             return services;
         }
 
