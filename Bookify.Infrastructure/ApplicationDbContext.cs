@@ -16,5 +16,11 @@ namespace Bookify.Infrastructure
            
             throw new NotImplementedException();
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);// automatically apply Configuration from an appemply that contain applicationdbcotext
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
