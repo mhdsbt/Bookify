@@ -1,7 +1,9 @@
-﻿using Bookify.Application.Abstraction.Email;
+﻿using Bookify.Application.Abstraction.Data;
+using Bookify.Application.Abstraction.Email;
 using Bookify.Domain.Abstractions;
 using Bookify.Domain.Entities.Apratment;
 using Bookify.Domain.Entities.Booking;
+using Bookify.Infrastructure.Data;
 using Bookify.Infrastructure.EmailService;
 using Bookify.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +35,9 @@ namespace Bookify.Infrastructure
 
             services.AddScoped<IBookingRepository,BookingRepository>();
 
-            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>()); 
+            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
+
+            services.AddSingleton<ISqlConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
             
             return services;
         }
