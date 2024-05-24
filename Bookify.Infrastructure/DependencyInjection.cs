@@ -1,5 +1,9 @@
 ﻿using Bookify.Application.Abstraction.Email;
+using Bookify.Domain.Abstractions;
+using Bookify.Domain.Entities.Apratment;
+using Bookify.Domain.Entities.Booking;
 using Bookify.Infrastructure.EmailService;
+using Bookify.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,8 +26,15 @@ namespace Bookify.Infrastructure
             {
                 options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
             }
+
             );
 
+            services.AddScoped<IApartmentRepository,ApartmentRepository>();
+
+            services.AddScoped<IBookingRepository,BookingRepository>();
+
+            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>()); 
+            
             return services;
         }
 
